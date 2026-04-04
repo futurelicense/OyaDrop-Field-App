@@ -2,13 +2,14 @@
 
 import { useAuth } from "@clerk/nextjs";
 import { SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 
 type UnknownObject = Record<string, unknown>;
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_OYADROP_BASE_URL ??
-  "https://oyadrop.com/api/external/oya-eat-provider";
+  "https://www.oyadrop.com/api/external/oya-eat-provider";
 
 function normalizeOrderList(payload: unknown): UnknownObject[] {
   if (Array.isArray(payload)) {
@@ -164,7 +165,15 @@ export function ProviderConsole() {
     <main className="mx-auto w-full max-w-6xl space-y-4 p-4 md:p-8">
       <header className="space-y-1">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-semibold">OyaDrop Provider Console</h1>
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="text-2xl font-semibold">OyaDrop Provider Console</h1>
+            <Link
+              className="text-sm font-medium text-emerald-700 underline dark:text-emerald-400"
+              href="/order-requests"
+            >
+              Order requests (proxy)
+            </Link>
+          </div>
           <div className="flex items-center gap-2">
             {isSignedIn ? (
               <UserButton />
