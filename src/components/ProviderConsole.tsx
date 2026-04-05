@@ -9,7 +9,7 @@ type UnknownObject = Record<string, unknown>;
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_OYADROP_BASE_URL ??
-  "https://oyadrop.com/api/external/oya-eat-provider";
+  "https://www.oyadrop.com/api/external/oya-eat-provider";
 
 function normalizeOrderList(payload: unknown): UnknownObject[] {
   if (Array.isArray(payload)) {
